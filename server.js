@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const http = require("http");
+const multer = require('multer');
 require('dotenv').config();
 
 const app = express();
@@ -22,7 +23,12 @@ server.listen(PORT, () => console.log(`Server up and running on http://localhost
 
 require('./configurations/sql.config');
 const User = require('./models/users.model');
+const Subject = require('./models/subject.model');
+const Note = require('./models/notes.model');
+
 
 app.use("/api/auth", require("./routes/auth.route"));
+app.use("/api/subject", require("./routes/subject.route"));
+app.use("/api/note", require("./routes/note.route"));
 
 

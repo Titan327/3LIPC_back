@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../configurations/sql.config');
+const Note = require('../models/notes.model')
 
 const UserModel = sequelize.define("User", {
     id : {
@@ -25,6 +26,13 @@ const UserModel = sequelize.define("User", {
         type: DataTypes.STRING,
     }
 });
+/*
+UserModel.hasMany(Note, { foreignKey: 'id_user' });
+Note.hasMany(UserModel, { foreignKey: 'id_user' });
+ */
+
+UserModel.hasMany(Note, { foreignKey: 'id_user' });
+Note.belongsTo(UserModel, { foreignKey: 'id_user' });
 
 sequelize.sync().then(() => {
     console.log('UserModel table created successfully!');
