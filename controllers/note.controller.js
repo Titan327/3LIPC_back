@@ -27,7 +27,8 @@ const getAllUserNote = async (req, res) => {
                 id_user: req.user.id
             },
             include: {
-                model: Subject
+                model: Subject,
+                attributes: ['label']
             }
         });
 

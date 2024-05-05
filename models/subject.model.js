@@ -34,6 +34,11 @@ sequelize.sync().then(() => {
                 imgLink:"https://www.zdnet.fr/wp-content/uploads/zdnet/2024/02/Python202.jpg",
                 type:"py",
             });
+            await SubjectModel.create({
+                label:"C",
+                imgLink:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1853px-C_Programming_Language.svg.png",
+                type:"c",
+            });
         }
     }
     initData();
